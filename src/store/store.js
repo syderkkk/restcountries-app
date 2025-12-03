@@ -4,6 +4,8 @@ export const useStore = create((set) => ({
   countries: [],
   loading: false,
   error: null,
+  currentPage: 1,
+  itemsPerPage: 12,
   
   fetchCountries: async () => {
     set({ loading: true, error: null });
@@ -20,6 +22,8 @@ export const useStore = create((set) => ({
       set({ error: error.message, loading: false });
     }
   },
+
+  setCurrentPage: (page) => set({ currentPage: page }),
 }));
 
 // banderas, nombre, capital
